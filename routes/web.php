@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SendEmailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/mail-form', [SendEmailController::class, 'index'])->name('home');
+Route::post('/mail-form', [SendEmailController::class, 'store'])->name('sendmail');
